@@ -1,30 +1,14 @@
-// Alegem un buton câștigător la întâmplare
-var winnerButton = Math.floor(Math.random() * 3) + 1;
+// Alege un buton câștigător la întâmplare
+var winningButtonId = "button" + Math.floor(Math.random() * 3 + 1);
 
-// Adăugăm un eveniment pentru fiecare buton
-document.getElementById("button1").addEventListener("click", function () {
-    if (winnerButton === 1) {
-        alert("Ai câștigat!");
-        document.getElementById("button1").id = "winner";
-    } else {
-        alert("Ai pierdut!");
-    }
-});
-
-document.getElementById("button2").addEventListener("click", function () {
-    if (winnerButton === 2) {
-        alert("Ai câștigat!");
-        document.getElementById("button2").id = "winner";
-    } else {
-        alert("Ai pierdut!");
-    }
-});
-
-document.getElementById("button3").addEventListener("click", function () {
-    if (winnerButton === 3) {
-        alert("Ai câștigat!");
-        document.getElementById("button3").id = "winner";
-    } else {
-        alert("Ai pierdut!");
-    }
-});
+// Adaugă un eveniment de click la fiecare buton
+var buttons = document.querySelectorAll("button");
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+        if (this.id === winningButtonId) {
+            alert("Ai câștigat! Ești norocos!");
+        } else {
+            alert("Nu ai câștigat. Mai încearcă!");
+        }
+    });
+}
